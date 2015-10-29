@@ -84,7 +84,7 @@ runecho(){
 }
 
 probefmt(){
-    run ffprobe -show_entries format=format_name -print_format default=nw=1:nk=1 -v 0 "$@"
+    run ffprobe${PROGSUF} -show_entries format=format_name -print_format default=nw=1:nk=1 -v 0 "$@"
 }
 
 runlocal(){
@@ -93,7 +93,7 @@ runlocal(){
 }
 
 probeframes(){
-    run ffprobe -show_frames -v 0 "$@"
+    run ffprobe${PROGSUF} -show_frames -v 0 "$@"
 }
 
 ffmpeg(){
@@ -103,7 +103,7 @@ ffmpeg(){
         [ x${arg} = x-i ] && ffmpeg_args="${ffmpeg_args} ${dec_opts}"
         ffmpeg_args="${ffmpeg_args} ${arg}"
     done
-    run ffmpeg ${ffmpeg_args}
+    run ffmpeg${PROGSUF} ${ffmpeg_args}
 }
 
 framecrc(){
